@@ -30,4 +30,4 @@ jobs:
           # smtplib is part of Python's standard library and doesn't need installation
 
       - name: Run Python script
-        run: python flat_scraper.py
+        run: python etl_sreality_scraper.py
