@@ -7,8 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1a5IQCLwNVQhy4EglUs0bCg1fvkK-4Onp
 """
 
-pip install selenium pandas psycopg2-binary supabase
-
 import tempfile
 import shutil
 from selenium import webdriver
@@ -198,37 +196,3 @@ try:
 
 except Exception as exception:
     print(exception)
-
-#connection to Supabase
-from supabase import create_client, Client
-
-response = (
-    supabase.table("listings")
-    .select("*")
-    .execute()
-)
-
-data = response.data
-
-
-df = pd.DataFrame(data)
-
-df.info()
-
-#Make an analysis
-
-
-#how many properties
-
-#average price
-df['price'].mean()
-
-df[df['price'] == df['price'].min()]
-
-df[df['price'] == df['price'].max()]
-
-df[df['price_per_square_meter'] == df['price_per_square_meter'].min()]
-
-df[df['price_per_square_meter'] == df['price_per_square_meter'].max()]
-
-df.tail()
